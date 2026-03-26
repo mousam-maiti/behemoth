@@ -1,0 +1,15 @@
+{
+  "plugins": {
+    "behemoth": {
+      "name": "Behemoth",
+      "version": "1.0.0",
+      "description": "The ultimate Claude Code plugin — best-in-class workflows, persistent memory, design intelligence, and agent orchestration.",
+      "source": {
+        "source": "github",
+        "repo": "mousam-maiti/behemoth"
+      },
+      "tags": ["workflow", "tdd", "memory", "design", "security", "agents"],
+      "author": "mousam-maiti"
+    }
+  }
+}
