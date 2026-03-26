@@ -1,56 +1,61 @@
 {
-  "hooks": [
-    {
-      "event": "SessionStart",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node hooks/scripts/session-start.js"
-        }
-      ]
-    },
-    {
-      "event": "Stop",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node hooks/scripts/session-checkpoint.js"
-        }
-      ]
-    },
-    {
-      "event": "PostToolUse",
-      "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx|css|json|md|html|vue|svelte)$\"",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node hooks/scripts/post-edit-check.js \"$file_path\""
-        },
-        {
-          "type": "command",
-          "command": "node hooks/scripts/auto-format.js \"$file_path\""
-        }
-      ]
-    },
-    {
-      "event": "PreToolUse",
-      "matcher": "tool == \"Bash\"",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node hooks/scripts/pre-bash-guard.js"
-        }
-      ]
-    },
-    {
-      "event": "PreToolUse",
-      "matcher": "tool == \"Edit\"",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node hooks/scripts/secret-scan.js"
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/session-start.js"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/session-checkpoint.js"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/post-edit-check.js \"$file_path\""
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/auto-format.js \"$file_path\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pre-bash-guard.js"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/secret-scan.js"
+          }
+        ]
+      }
+    ]
+  }
 }
