@@ -1,0 +1,47 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN_HERE" },
+      "description": "GitHub API — repos, issues, PRs, code search"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-playwright"],
+      "description": "Browser automation for E2E testing and web scraping"
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/project"],
+      "description": "File system access for reading/writing project files"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Persistent key-value memory across sessions"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Step-by-step reasoning for complex problem solving"
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": { "DATABASE_URL": "YOUR_DATABASE_URL_HERE" },
+      "description": "PostgreSQL read-only queries for database exploration"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"],
+      "description": "Up-to-date library documentation lookup"
+    }
+  },
+  "_notes": {
+    "usage": "Copy desired servers to your ~/.claude.json or project .mcp.json",
+    "important": "Replace YOUR_*_HERE placeholders with actual values",
+    "context_warning": "Each MCP server consumes context tokens. Keep under 10 servers and 80 tools active.",
+    "disable_per_project": "Add 'disabledMcpServers' to project .claude/settings.json to disable unused servers"
+  }
+}

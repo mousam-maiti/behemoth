@@ -1,0 +1,56 @@
+{
+  "hooks": [
+    {
+      "event": "SessionStart",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node hooks/scripts/session-start.js"
+        }
+      ]
+    },
+    {
+      "event": "Stop",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node hooks/scripts/session-checkpoint.js"
+        }
+      ]
+    },
+    {
+      "event": "PostToolUse",
+      "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx|css|json|md|html|vue|svelte)$\"",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node hooks/scripts/post-edit-check.js \"$file_path\""
+        },
+        {
+          "type": "command",
+          "command": "node hooks/scripts/auto-format.js \"$file_path\""
+        }
+      ]
+    },
+    {
+      "event": "PreToolUse",
+      "matcher": "tool == \"Bash\"",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node hooks/scripts/pre-bash-guard.js"
+        }
+      ]
+    },
+    {
+      "event": "PreToolUse",
+      "matcher": "tool == \"Edit\"",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node hooks/scripts/secret-scan.js"
+        }
+      ]
+    }
+  ]
+}
