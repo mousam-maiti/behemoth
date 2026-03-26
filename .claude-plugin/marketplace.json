@@ -1,15 +1,19 @@
 {
-  "plugins": {
-    "behemoth": {
-      "name": "Behemoth",
+  "name": "behemoth",
+  "owner": {
+    "name": "mousam-maiti",
+    "url": "https://github.com/mousam-maiti"
+  },
+  "plugins": [
+    {
+      "name": "behemoth",
       "version": "1.0.0",
       "description": "The ultimate Claude Code plugin — best-in-class workflows, persistent memory, design intelligence, and agent orchestration.",
       "source": {
         "source": "github",
         "repo": "mousam-maiti/behemoth"
       },
-      "tags": ["workflow", "tdd", "memory", "design", "security", "agents"],
-      "author": "mousam-maiti"
+      "tags": ["workflow", "tdd", "memory", "design", "security", "agents"]
     }
-  }
+  ]
 }
