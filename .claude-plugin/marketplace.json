@@ -7,13 +7,12 @@
   "plugins": [
     {
       "name": "behemoth",
-      "version": "1.0.0",
-      "description": "The ultimate Claude Code plugin — best-in-class workflows, persistent memory, design intelligence, and agent orchestration.",
+      "version": "2.0.0",
+      "description": "Design intelligence, UI templates, secret scanning, and auto-format. Companion to ECC.",
       "source": {
         "source": "github",
         "repo": "mousam-maiti/behemoth"
-      },
-      "tags": ["workflow", "tdd", "memory", "design", "security", "agents"]
+      }
     }
   ]
 }

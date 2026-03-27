@@ -1,27 +1,14 @@
-Load comprehensive project context to start a productive session:
+Load project context for a productive session:
 
-1. Read directory structure (2 levels deep)
-2. Read key project files:
-   - `package.json` / `pyproject.toml` / `go.mod` (dependencies and scripts)
-   - `tsconfig.json` / `setup.cfg` (configuration)
-   - `README.md` (project overview)
-   - `.env.example` (required environment variables)
-3. Load Behemoth state from `.behemoth/`:
-   - Latest 2 session summaries
-   - Active plan (if any)
-   - Design system (if any)
-   - Recent learnings
-4. Check git status: current branch, recent commits, uncommitted changes
-5. Present a compact context summary:
+1. Read directory structure (2 levels)
+2. Read package.json / pyproject.toml / go.mod
+3. Read README.md
+4. Check git status and last 5 commits
+5. Load `.behemoth/design-system/MASTER.md` if it exists
+6. Present a compact summary:
 
 ```
-📁 Project: [name] ([language/framework])
-📦 Dependencies: [key deps]
-🔀 Branch: [branch] (3 uncommitted files)
-📋 Plan: [plan name] (4/7 tasks done)
-📝 Last session: [summary]
-🎨 Design: [style, primary color]
-💡 Learnings: [count] patterns captured
+📁 Project: [name] ([stack])
+🔀 Branch: [branch] ([N] uncommitted files)
+🎨 Design: [style], [primary color], [font]
 ```
-
-This replaces manually explaining your project at the start of each session.
